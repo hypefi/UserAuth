@@ -11,7 +11,7 @@ const passport = require("passport");
 require('./config/passport')(passport)
 //mongoose
 mongoose.connect('mongodb://localhost/test',{useNewUrlParser: true, useUnifiedTopology : true})
-.then(() => console.log('connected,,'))
+.then(() => console.log('connected.'))
 .catch((err)=> console.log(err));
 
 //EJS
@@ -34,7 +34,7 @@ app.use((req,res,next)=> {
     res.locals.error  = req.flash('error');
     next();
     })
-    
+app.use(express.static("public"));   
 //Routes
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));

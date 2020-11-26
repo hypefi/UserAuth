@@ -6,16 +6,21 @@ const passport = require('passport');
 //login handle
 router.get('/login',(req,res)=>{
     res.render('login');
+    console.log('get - res : ' + res);
 })
 router.get('/register',(req,res)=>{
     res.render('register')
     })
 //Register handle
 router.post('/login',(req,res,next)=>{
-passport.authenticate('local',{
+     console.log(req.body);
+    console.log('post -res' + res);
+  // console.log(res);
+  passport.authenticate('local',{
     successRedirect : '/dashboard',
     failureRedirect: '/users/login',
-    failureFlash : true
+    failureFlash : true,
+    successFlash: 'Welcome!'
 })(req,res,next)
 })
   //register post handle
