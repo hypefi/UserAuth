@@ -31,7 +31,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ~/UserAuth
-            git pull origin master
+            git pull origin main
             npm install --production
             pm2 restart node-app
 
